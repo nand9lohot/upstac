@@ -21,12 +21,9 @@ public class RegisterService {
     @Autowired
     private UserService userService;
 
-
     private static final Logger log = LoggerFactory.getLogger(RegisterService.class);
 
-
     public User addUser(RegisterRequest user) {
-
 
         if((null != userService.findByUserName(user.getUserName())))
             throw new AppException("Username already exists " + user.getUserName());
@@ -34,10 +31,8 @@ public class RegisterService {
         if((null != userService.findByEmail(user.getEmail())))
             throw new AppException("User with Same email already exists " + user.getEmail());
 
-
         if((null != userService.findByPhoneNumber(user.getPhoneNumber())))
             throw new AppException("User with Same Phone number already exists " + user.getPhoneNumber());
-
 
         User newUser = new User();
         newUser.setUserName(user.getUserName());
@@ -56,11 +51,7 @@ public class RegisterService {
         newUser.setDateOfBirth(getDateFromString(user.getDateOfBirth()));
         newUser.setStatus(AccountStatus.APPROVED);
         User updatedUser = userService.saveInDatabase(newUser);
-
-
         return updatedUser;
-
-
     }
 
     public User addDoctor(RegisterRequest user) {
@@ -71,10 +62,8 @@ public class RegisterService {
         if((null != userService.findByEmail(user.getEmail())))
             throw new AppException("User with Same email already exists " + user.getEmail());
 
-
         if((null != userService.findByPhoneNumber(user.getPhoneNumber())))
             throw new AppException("User with Same Phone number already exists " + user.getPhoneNumber());
-
 
         User newUser = new User();
         newUser.setUserName(user.getUserName());
@@ -93,11 +82,7 @@ public class RegisterService {
         newUser.setDateOfBirth(getDateFromString(user.getDateOfBirth()));
         newUser.setStatus(AccountStatus.INITIATED);
         User updatedUser = userService.saveInDatabase(newUser);
-
-
         return updatedUser;
-
-
     }
     public User addGovernmentAuthority(RegisterRequest user) {
 
@@ -107,10 +92,8 @@ public class RegisterService {
         if((null != userService.findByEmail(user.getEmail())))
             throw new AppException("User with Same email already exists " + user.getEmail());
 
-
         if((null != userService.findByPhoneNumber(user.getPhoneNumber())))
             throw new AppException("User with Same Phone number already exists " + user.getPhoneNumber());
-
 
         User newUser = new User();
         newUser.setUserName(user.getUserName());
@@ -129,11 +112,7 @@ public class RegisterService {
         newUser.setDateOfBirth(getDateFromString(user.getDateOfBirth()));
         newUser.setStatus(AccountStatus.APPROVED);
         User updatedUser = userService.saveInDatabase(newUser);
-
-
         return updatedUser;
-
-
     }
 
     public User addTester(RegisterRequest user) {
@@ -144,10 +123,8 @@ public class RegisterService {
         if((null != userService.findByEmail(user.getEmail())))
             throw new AppException("User with Same email already exists " + user.getEmail());
 
-
         if((null != userService.findByPhoneNumber(user.getPhoneNumber())))
             throw new AppException("User with Same Phone number already exists " + user.getPhoneNumber());
-
 
         User newUser = new User();
         newUser.setUserName(user.getUserName());
@@ -166,8 +143,6 @@ public class RegisterService {
         newUser.setDateOfBirth(getDateFromString(user.getDateOfBirth()));
         newUser.setStatus(AccountStatus.INITIATED);
         User updatedUser = userService.saveInDatabase(newUser);
-
-
         return updatedUser;
 
 
